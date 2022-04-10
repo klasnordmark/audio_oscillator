@@ -70,4 +70,8 @@ module audio_oscillator #(
     end
   end
 
+  `ifdef FORMAL
+  `include "formal.v"
+  `endif
+
 endmodule
