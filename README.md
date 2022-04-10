@@ -1,2 +1,2 @@
 # audio_oscillator
-Simple oscillator for digital audio synthesizers.
+A simple oscillator for usage in digital audio synthesizers. Documentation and testbench coming soon.
