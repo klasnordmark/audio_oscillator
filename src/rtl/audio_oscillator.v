@@ -22,8 +22,8 @@ module audio_oscillator #(
   reg counter_pulse;
 
   wire transaction;
-  wire [15:0] saw;
-  reg [15:0] square;
+  wire [SAMPLE_SIZE-1:0] saw;
+  reg [SAMPLE_SIZE-1:0] square;
 
   assign transaction = tvalid & tready;
   assign tdata       = waveform ? square : saw;
