@@ -13,8 +13,8 @@ module audio_oscillator #(
     input wire tready
 );
 
-  localparam integer StateHigh = 0;
-  localparam integer StateLow = 1;
+  localparam StateHigh = 0;
+  localparam StateLow = 1;
   localparam integer DutyStep = 2 ** 25; // (2**32)/128, 128 parts of the counter range
 
   reg [31:0] clk_counter;
@@ -65,13 +65,16 @@ module audio_oscillator #(
       {counter_pulse, clk_counter} <= clk_counter + divisor;
     end
     if (!reset_n) begin
-      tvalid      <= 0;
-      clk_counter <= 0;
+      tvalid        <= 0;
+      clk_counter   <= 0;
+      counter_pulse <= 0;
     end
   end
 
-  `ifdef FORMAL
+`ifdef FORMAL
   `include "formal.v"
-  `endif
+`endif
 
 endmodule
+
+`default_nettype wire
